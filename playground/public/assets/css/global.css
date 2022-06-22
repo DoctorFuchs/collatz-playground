@@ -1,0 +1,40 @@
+:root {
+    --background-color: black;
+    --background-color-hover: green;
+    --font-color: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--background-color);
+}
+  
+nav li {
+    float: left;
+}
+  
+nav li a {
+    display: block;
+    color: var(--font-color);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+/* Change the link color to #111 (black) on hover */
+nav li a:hover {
+    background-color: var(--background-color-hover);
+}
+
+main {
+    display: grid;
+    grid-template-columns: calc(1/3) calc(1/3) calc(1/3);
+}
