@@ -1,3 +1,7 @@
+<template id="image-generator">
+    
+</template>
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -6,20 +10,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/assets/js/playground.js"></script>
     <link rel="stylesheet" href="/assets/css/global.css">
+    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
 </head>
 <body>
     <header>
         <nav>
-            <ul>    
-                <li>
-                    <a href="/index.html"><h1>Collatz Playground</h1></a>
-                </li>
-                <li>
-                    <a></a>
-                </li>
-            </ul>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">Collatz Spielplatz</a>
+            </div>
         </nav>
     </header>
-    <main></main>
-    <footer></footer>
+    <main>
+        
+        <div class="row">
+            <div class="col l6 m12 s12">
+                <h3>Rechner</h3>
+                <p>Gebt dem Rechner eine Zahl eurer Wahl!</p>
+                <form method="POST" target="/calculator" class="calculator">
+                    <input name="num" min="1" max="1000000" type="number" step="1" required>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        Berechnen
+                    </button>
+                </form>
+                <div class="results"></div>
+            </div>
+            <div class="col l6 m12 s12">
+                <h3>Bildgenerator</h3>
+                <p>Mit diesem Tool könnt ihr Bilder erzeugen. Die Bilder stellen den Zusammenhang zwischen Eingabe und Anzahl der Schritte dar.</p>
+                <form method="POST" target="/generator" class="imageGenerator">
+                    <input name="min" min="1" max="1000000" type="number" step="1" required>
+                    <input name="max" min="1" max="1000000" type="number" step="1" required>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        Erstellen
+                    </button>
+                </form>
+                <div class="results"></div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Copyright</h5>
+                    <p class="grey-text text-lighten-4">Da alles unter der MIT License von mir veröffentlicht wurde (Zumindestens der Code), dürft ihr gerne alle Bilder für euch privat und öffentlich benutzen. Über eine Nennung meines Namens als DoctorFuchs würde ich mich freuen. Viel Spaß!</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="/pdfs/KomplexeLeistung.pdf">Zur Arbeit</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://de.wikipedia.org/wiki/Collatz-Problem#/media/Datei:Collatz_100000.png">Zum Wikipedia Beitrag</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            
+        </div>
+    </footer>
 </body>

@@ -29,18 +29,18 @@ def generate_image(MINIMUM= 1, MAXIMUM= 1000000):
         x_values, # Die Werte für x als "iterable" (listenartig)
         y_values, # Die Werte für y als "iterable" (listenartig)
         'ro',  # ro steht für red (r) und circles (o) => rote punkte
-        markersize=1, # Punktgröße
+        markersize=50/(MAXIMUM-MINIMUM) + 1, # Punktgröße
         # damit die einzelnen Punkte bei einem Raum (1, 100) nicht genauso klein sind, wie bei einem anderen Raum (1, 100000) wird diese automatisch angepasst
         # beim ersten Raum wäre der Wert 100/100 = 1 => dickerer Rand und damit bessere Sichtbarkeit bei wenigeren Punkten
         # beim zweitenräum wäre der Wert 100/100000 = 0.001 => dünnerer Rand und damit bessere Sichtbarkeit bei vielen Punkten
-        markeredgewidth=100/(MAXIMUM-MINIMUM) # Randbreite
+        # markeredgewidth=100/(MAXIMUM-MINIMUM) # Randbreite
     )
     # Damit der Graph nicht zuviel zeigt (und nicht zu wenig) werden die Mininmums und Maximums manuell gesetzt
     plt.xlim(xmin=MINIMUM-1, xmax=MAXIMUM)
-    plt.ylim(ymin=0)
+    plt.ylim(ymin=0, ymax=round(max(y_values)*1.05))
 
     image = BytesIO()
 
     # optional kann die Abbildung auch als Bild gespeichert werden
-    plt.savefig(image, format="png")
+    plt.savefig(image, format="png", dpi=600)
     return base64.encodebytes(image.getvalue())

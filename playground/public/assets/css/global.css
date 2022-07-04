@@ -1,7 +1,8 @@
 :root {
-    --background-color: black;
-    --background-color-hover: green;
+    --background-color: linear-gradient(#eeeeee, #333333)i;
+    --background-color-hover: linear-gradient(white, black);
     --font-color: white;
+    --fancy-font: linear-gradient(45, #09009f, #00ff95, 80%);
 }
 
 body {
@@ -18,15 +19,26 @@ nav ul {
 }
   
 nav li {
-    float: left;
+    float: center;
 }
   
 nav li a {
     display: block;
-    color: var(--font-color);
+    background: var(--fancy-font);
+    background-clip: text;
+    -webkit-background-clip: text;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+}
+
+nav li h1.fancy {
+    font-size: 48px;
+    font-weight: 800;
+    background: -webkit-linear-gradient(45deg, #09009f, #00ff95 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
 }
   
 /* Change the link color to #111 (black) on hover */
@@ -34,7 +46,11 @@ nav li a:hover {
     background-color: var(--background-color-hover);
 }
 
+.results img {
+    width: 100%;
+    height: auto;
+}
+
 main {
-    display: grid;
-    grid-template-columns: calc(1/3) calc(1/3) calc(1/3);
+    min-height: 100vh;
 }
